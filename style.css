@@ -4,135 +4,579 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 30px 15px;
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   color: white;
-  text-align: center;
-  overflow-x: hidden;
   background:
-    radial-gradient(circle at top, #6a1b9a, transparent 45%),
-    linear-gradient(135deg, #12002f, #26004d, #090018);
+    radial-gradient(circle at top, #8e2de2, transparent 35%),
+    radial-gradient(circle at bottom, #ff0080, transparent 35%),
+    linear-gradient(135deg, #090018, #21003d, #12001f);
+  overflow-x: hidden;
 }
 
-.card {
+.screen {
+  min-height: 100vh;
   width: 100%;
-  max-width: 650px;
-  padding: 40px 25px;
-  border-radius: 30px;
-  background: rgba(255, 255, 255, 0.10);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(15px);
-  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.45);
-  animation: appear 1s ease;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 15px;
+  position: relative;
 }
 
-.sparkle {
-  font-size: 14px;
-  letter-spacing: 2px;
+.screen.active {
+  display: flex;
+}
+
+
+/* OPENING */
+
+.opening-content {
+  text-align: center;
+  max-width: 700px;
+  padding: 45px 25px;
+  animation: appear 1.2s ease;
+}
+
+.small-stars {
+  font-size: 28px;
+  margin-bottom: 25px;
+  animation: sparkle 2s infinite;
+}
+
+.special {
+  letter-spacing: 5px;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.opening-content h1 {
+  font-size: clamp(70px, 18vw, 150px);
+  margin: 15px 0;
+  background: linear-gradient(
+    90deg,
+    #ff6ec7,
+    #ffd166,
+    #fff,
+    #ff6ec7
+  );
+  background-size: 300%;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradientMove 4s linear infinite;
+}
+
+.nickname {
+  font-size: 28px;
   margin-bottom: 20px;
+}
+
+.opening-text {
+  font-size: 20px;
+  margin-bottom: 30px;
   opacity: 0.9;
 }
 
-h1 {
-  font-size: clamp(38px, 9vw, 70px);
-  line-height: 1.1;
-  margin-bottom: 20px;
-}
 
-h1 span {
-  background: linear-gradient(90deg, #ff8ad8, #ffd166, #ff8ad8);
-  -webkit-background-clip: text;
-  color: transparent;
-  background-size: 200%;
-  animation: shine 3s linear infinite;
-}
+/* BUTTONS */
 
-.intro,
-.card > p {
-  font-size: 18px;
-  line-height: 1.7;
-  color: #f4eaff;
-}
-
-.cake {
-  font-size: 90px;
-  margin: 25px 0;
-  animation: bounce 2s infinite;
-  filter: drop-shadow(0 10px 20px rgba(255, 100, 220, 0.4));
-}
-
-button {
+.main-btn,
+.celebrate-btn {
   border: none;
-  margin-top: 25px;
   padding: 16px 28px;
   border-radius: 50px;
-  background: linear-gradient(135deg, #ff4fa3, #ff7b54);
   color: white;
   font-size: 17px;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 10px 25px rgba(255, 79, 163, 0.4);
+  background: linear-gradient(135deg, #ff1493, #ff6b35);
+  box-shadow: 0 10px 35px rgba(255, 20, 147, 0.4);
   transition: 0.3s;
 }
 
-button:hover {
-  transform: translateY(-4px) scale(1.03);
+.main-btn:hover,
+.celebrate-btn:hover {
+  transform: translateY(-5px) scale(1.04);
 }
 
-button:active {
-  transform: scale(0.96);
+.main-btn:active {
+  transform: scale(0.95);
 }
 
-#surprise {
+
+/* MUSIC */
+
+.music-btn {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 1000;
+  border: none;
+  border-radius: 30px;
+  padding: 11px 17px;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+}
+
+
+/* BIRTHDAY CARD */
+
+.birthday-card {
+  width: 100%;
+  max-width: 700px;
+  padding: 35px 22px;
+  text-align: center;
+  border-radius: 35px;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+  animation: cardAppear 1s ease;
+}
+
+.top-decoration {
+  font-size: 35px;
+  letter-spacing: 15px;
+  margin-bottom: 15px;
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 3px;
+  opacity: 0.8;
+}
+
+.birthday-card h2 {
+  font-size: clamp(38px, 9vw, 70px);
+  margin: 15px 0;
+  line-height: 1.1;
+}
+
+.birthday-card h2 span {
+  background: linear-gradient(90deg, #ff70c8, #ffd166);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.nickname-big {
+  font-size: 25px;
+  margin-bottom: 25px;
+}
+
+
+/* PHOTO */
+
+.photo-card {
+  margin: 25px auto;
+  max-width: 380px;
+  padding: 15px;
+  border-radius: 25px;
+  background: rgba(255,255,255,0.1);
+}
+
+.photo-frame {
+  overflow: hidden;
+  border-radius: 20px;
+  border: 3px solid rgba(255,255,255,0.5);
+}
+
+.photo-frame img {
+  width: 100%;
+  display: block;
+  transition: 0.6s;
+}
+
+.photo-frame img:hover {
+  transform: scale(1.05);
+}
+
+.photo-card p {
+  margin-top: 12px;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+
+/* CAKE */
+
+.cake {
+  font-size: 100px;
+  margin: 25px;
+  animation: cakeBounce 2s infinite;
+}
+
+
+/* MESSAGE */
+
+.message {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #ffeafa;
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+
+/* GIFT */
+
+.gift-area {
   margin-top: 30px;
   padding: 25px;
   border-radius: 25px;
-  background: rgba(255, 255, 255, 0.12);
-  animation: surprise 0.8s ease;
-}
-
-#surprise h2 {
-  font-size: 30px;
-  margin-bottom: 12px;
-}
-
-#surprise p {
-  line-height: 1.7;
-  font-size: 17px;
+  background: rgba(255,255,255,0.07);
 }
 
 .gift {
-  font-size: 80px;
-  animation: gift 1.5s infinite;
+  font-size: 100px;
+  cursor: pointer;
+  animation: giftShake 2s infinite;
 }
 
-.wishes {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
+#giftText {
+  margin: 10px 0 15px;
+  opacity: 0.8;
+}
+
+
+/* SURPRISE */
+
+.hidden {
+  display: none;
+}
+
+.surprise {
+  margin-top: 30px;
+  padding: 30px 20px;
+  border-radius: 25px;
+  background: linear-gradient(
+    135deg,
+    rgba(255,20,147,0.25),
+    rgba(142,45,226,0.25)
+  );
+  animation: surpriseAppear 0.8s ease;
+}
+
+.big-heart {
+  font-size: 80px;
+  animation: heartbeat 1s infinite;
+}
+
+.surprise h3 {
+  font-size: 30px;
+  margin: 15px 0;
+}
+
+.surprise p {
+  line-height: 1.8;
+}
+
+.wish-boxes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
   margin-top: 20px;
 }
 
-.wishes span {
-  padding: 9px 14px;
-  border-radius: 30px;
-  background: rgba(255, 255, 255, 0.12);
-  font-size: 14px;
+.wish-boxes div {
+  padding: 15px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.1);
 }
+
+
+/* CELEBRATE */
+
+.celebrate-btn {
+  margin-top: 30px;
+}
+
+
+/* FINAL */
+
+.final-screen {
+  background:
+    radial-gradient(circle, #ff0080, transparent 30%),
+    linear-gradient(135deg, #10002b, #42005f);
+}
+
+.final-content {
+  text-align: center;
+  animation: finalAppear 1s ease;
+}
+
+.final-stars {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.final-cake {
+  font-size: 110px;
+  animation: cakeBounce 1.5s infinite;
+}
+
+.final-content h1 {
+  font-size: clamp(40px, 10vw, 90px);
+  margin-top: 20px;
+}
+
+.final-content h2 {
+  font-size: clamp(45px, 12vw, 100px);
+  background: linear-gradient(90deg,#ff70c8,#ffd166,#fff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.final-content p {
+  font-size: 22px;
+  margin: 15px;
+}
+
+.final-hindi {
+  max-width: 600px;
+  line-height: 1.7;
+  margin: auto !important;
+}
+
+.final-emojis {
+  font-size: 35px;
+  margin: 25px;
+}
+
+
+/* FLOATING HEARTS */
+
+.heart {
+  position: fixed;
+  bottom: -50px;
+  animation: floatUp linear forwards;
+  pointer-events: none;
+  z-index: 2;
+}
+
+
+/* BALLOONS */
+
+.balloon {
+  position: fixed;
+  bottom: -100px;
+  font-size: 50px;
+  animation: balloonUp linear forwards;
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+/* CONFETTI */
+
+.confetti-piece {
+  position: fixed;
+  top: -30px;
+  font-size: 20px;
+  z-index: 999;
+  animation: confettiFall linear forwards;
+}
+
+
+/* FIREWORKS */
+
+.firework {
+  position: fixed;
+  font-size: 40px;
+  z-index: 999;
+  animation: fireworkPop 1.5s ease forwards;
+}
+
+
+/* FOOTER */
 
 footer {
-  margin-top: 25px;
-  font-size: 14px;
-  opacity: 0.7;
+  text-align: center;
+  padding: 20px;
+  font-size: 13px;
+  opacity: 0.65;
 }
 
-#confetti {
-  position: fixed;
-  inset: 0;
+footer small {
+  font-size: 10px;
+}
+
+
+/* ANIMATIONS */
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes surpriseAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes finalAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes cakeBounce {
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15px) rotate(2deg);
+  }
+}
+
+@keyframes giftShake {
+  0%,100% {
+    transform: rotate(0);
+  }
+
+  25% {
+    transform: rotate(-8deg);
+  }
+
+  75% {
+    transform: rotate(8deg);
+  }
+}
+
+@keyframes heartbeat {
+  0%,100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes sparkle {
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes gradientMove {
+  to {
+    background-position: 300%;
+  }
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-120vh) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+@keyframes balloonUp {
+  to {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
+}
+
+@keyframes confettiFall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@keyframes fireworkPop {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+
+  70% {
+    transform: scale(2);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 500px) {
+
+  .birthday-card {
+    padding: 28px 16px;
+  }
+
+  .top-decoration {
+    font-size: 25px;
+    letter-spacing: 5px;
+  }
+
+  .cake,
+  .final-cake {
+    font-size: 75px;
+  }
+
+  .message {
+    font-size: 16px;
+  }
+
+  .main-btn,
+  .celebrate-btn {
+    width: 100%;
+  }
+
+  .wish-boxes {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .music-btn {
+    top: 10px;
+    right: 10px;
+    font-size: 12px;
+  }
+}
