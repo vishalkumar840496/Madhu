@@ -3,64 +3,235 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday Madhu 🎂</title>
+  <meta name="description" content="A special birthday surprise for Madhu - Fruityy ❤️">
+  <title>Happy Birthday Madhu ❤️</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+  <!-- Background decorations -->
+  <div id="hearts"></div>
+  <div id="balloons"></div>
+  <div id="fireworks"></div>
   <div id="confetti"></div>
 
-  <main class="card">
+  <!-- Music -->
+  <audio id="birthdayMusic" loop>
+    <source src="birthday.mp3" type="audio/mpeg">
+  </audio>
 
-    <div class="sparkle">✨ A Special Surprise For You ✨</div>
+  <button id="musicBtn" class="music-btn">
+    🎵 Play Music
+  </button>
 
-    <h1>
-      Happy Birthday,<br>
-      <span>Madhu!</span> 🎂
-    </h1>
+  <!-- Opening screen -->
+  <section id="opening" class="screen active">
 
-    <p class="intro">
-      Today is your special day — a day to smile,
-      celebrate and create beautiful memories. 💖
-    </p>
+    <div class="opening-content">
 
-    <div class="cake">🎂</div>
+      <div class="small-stars">✨ ✨ ✨</div>
 
-    <p>
-      May your life always be filled with
-      <b>happiness, success, love and laughter.</b>
-    </p>
+      <p class="special">A LITTLE SURPRISE FOR</p>
 
-    <button id="surpriseBtn">
-      🎁 Open Your Surprise
-    </button>
+      <h1>Madhu</h1>
 
-    <section id="surprise" hidden>
-
-      <div class="gift">🎁</div>
-
-      <h2>For You, Madhu 💝</h2>
-
-      <p>
-        Keep smiling, keep shining and keep being
-        the amazing person you are.
-        Here's to another wonderful year of your life! 🥳
-      </p>
-
-      <div class="wishes">
-        <span>💖 Happiness</span>
-        <span>🌟 Success</span>
-        <span>🌸 Beautiful Memories</span>
+      <div class="nickname">
+        💖 Our Fruityy 💖
       </div>
 
-    </section>
+      <p class="opening-text">
+        Someone very special has a birthday today...
+      </p>
 
-  </main>
+      <button id="startBtn" class="main-btn">
+        🎁 Open Your Birthday Surprise
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- Main birthday screen -->
+  <section id="birthday" class="screen">
+
+    <div class="birthday-card">
+
+      <div class="top-decoration">
+        🎈 🎈 🎈
+      </div>
+
+      <p class="eyebrow">
+        ✨ TODAY IS YOUR SPECIAL DAY ✨
+      </p>
+
+      <h2>
+        Happy Birthday
+        <span>Madhu</span>! 🎂
+      </h2>
+
+      <div class="nickname-big">
+        💕 Fruityy 💕
+      </div>
+
+      <!-- Aishwarya photo -->
+      <div class="photo-card">
+
+        <div class="photo-frame">
+
+          <img
+            src="https://commons.wikimedia.org/wiki/Special:Redirect/file/AishwaryaRai.jpg"
+            alt="Aishwarya Rai"
+          >
+
+        </div>
+
+        <p>
+          ✨ A little celebrity-style birthday glamour for our Fruityy ✨
+        </p>
+
+      </div>
+
+      <div class="cake">
+        🎂
+      </div>
+
+      <p class="message">
+        Dear <b>Fruityy</b> 💖,
+        <br><br>
+
+        आज का दिन बहुत खास है क्योंकि आज
+        एक बहुत ही प्यारे इंसान का Birthday है! 🥳
+
+        <br><br>
+
+        May your life always be filled with
+        <b>happiness, love, success, laughter</b>
+        and countless beautiful memories. 🌸
+
+        <br><br>
+
+        हमेशा ऐसे ही मुस्कुराते रहो,
+        खुश रहो और अपनी प्यारी सी smile से
+        सबका दिल जीतते रहो। ❤️
+
+      </p>
+
+
+      <!-- Gift -->
+      <div class="gift-area">
+
+        <div id="gift" class="gift">
+          🎁
+        </div>
+
+        <p id="giftText">
+          There's a special surprise waiting for you...
+        </p>
+
+        <button id="giftBtn" class="main-btn">
+          🎁 Open The Gift
+        </button>
+
+      </div>
+
+
+      <!-- Hidden surprise -->
+      <div id="surprise" class="surprise hidden">
+
+        <div class="big-heart">
+          💖
+        </div>
+
+        <h3>
+          This One Is For You, Fruityy! 🥰
+        </h3>
+
+        <p>
+          तुम्हारी हर सुबह खुशी लेकर आए,
+          हर शाम सुकून लेकर आए,
+          और तुम्हारी जिंदगी का हर नया साल
+          पहले से भी ज्यादा खूबसूरत हो। 🌸
+        </p>
+
+        <div class="wish-boxes">
+
+          <div>💖<br>Love</div>
+          <div>🌟<br>Success</div>
+          <div>😊<br>Happiness</div>
+          <div>🌸<br>Beautiful Days</div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Final button -->
+      <button id="celebrateBtn" class="celebrate-btn">
+        🎆 Celebrate With Me!
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- Final celebration -->
+  <section id="finalScreen" class="screen final-screen">
+
+    <div class="final-content">
+
+      <div class="final-stars">
+        ✨ ⭐ ✨ ⭐ ✨
+      </div>
+
+      <div class="final-cake">
+        🎂
+      </div>
+
+      <h1>
+        HAPPY BIRTHDAY
+      </h1>
+
+      <h2>
+        MADHU ❤️
+      </h2>
+
+      <p>
+        Keep smiling, Fruityy! 🥰
+      </p>
+
+      <p class="final-hindi">
+        तुम्हारा हर सपना पूरा हो
+        और तुम्हारी जिंदगी हमेशा खुशियों से भरी रहे। 💖
+      </p>
+
+      <div class="final-emojis">
+        🎈 🎉 🎁 💖 🌸 🎆
+      </div>
+
+      <button
+        id="restartBtn"
+        class="main-btn"
+      >
+        🔄 See It Again
+      </button>
+
+    </div>
+
+  </section>
+
 
   <footer>
-    Made with ❤️ specially for Madhu
+    Made with ❤️ specially for Madhu • Fruityy
+    <br>
+    <small>
+      Aishwarya Rai image:
+      Bollywood Hungama / Wikimedia Commons, CC BY 3.0
+    </small>
   </footer>
+
 
   <script src="script.js"></script>
 
